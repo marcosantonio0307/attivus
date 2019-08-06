@@ -1,0 +1,212 @@
+<div class="row" style="margin-top: 0.5em"> <!-- begin logo bar -->
+	<div class="col-lg-12 col-md-12 logo-bar">
+		<div class="col-lg-3 col-md-3 col-sm-12" style="text-align: center;">
+			<%= image_tag 'logo.jpg', :width=> '130', :height=> '100' %> 
+		</div>
+
+		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 search">
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+				<%= text_field_tag :search, nil, placeholder: 'Busque seu produto aqui!', class: 'form-control' %>
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="margin-left: -1.5em;">
+				<span><%= image_tag 'search.png', :width=> '37' %></span>
+			</div>	
+		</div>
+		</div>
+		
+	</div>
+</div> <!-- end logo bar -->
+
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<div class="navbar"> <!-- begin nav bar -->
+			<input type="checkbox" id="bt_menu">
+		    <label for="bt_menu">&#9776;</label>
+			<nav class="menus">
+				<ul>
+					<li>
+						<%= link_to 'saúde' %>
+					</li>
+					<li>
+						<%= link_to 'beleza' %>
+					</li>
+					<li>
+						<%= link_to 'categorías' %>
+					</li>
+					<li>
+						<%= link_to 'manipulações' %>
+					</li>
+					<li>
+						<%= link_to 'ofertas' %>
+					</li>
+					<li>
+						<%= link_to 'orçamentos' %>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div> <!-- end nav bar -->
+
+<div class="row mycarousel">
+	<div class="col-lg-12 col-md-12 col-sm-">
+		<div id="PrimaryCarousel" class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner" role="listbox">
+				<div class="carousel-item active">
+					<%= image_tag 'slide1.jpeg', :width=> '100%', class: 'd-block w-100', alt: 'First Slide' %>
+					<div class="carousel-caption"></div>
+				</div>
+
+				<!--<div class="carousel-item">
+					<%= image_tag 'slide2.jpeg', class: 'd-block w-100', alt: 'Second Slide' %>
+					<div class="carousel-caption"></div>
+				</div>
+
+				<div class="carousel-item">
+					<%= image_tag 'slide3.jpeg', class: 'd-block w-100', alt: 'Third Slide' %>
+					<div class="carousel-caption"></div>
+				</div> -->
+			</div>
+			<!-- <a class="carousel-control-prev" href="#PrimaryCarousel" role="button" data-slide="prev" >
+				<span class="carousel-control-prev-icon"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#PrimaryCarousel" role="button" data-slide="next" >
+				<span class="carousel-control-next-icon"></span>
+				<span class="sr-only">Next</span>
+			</a> -->
+		</div>
+	</div>
+</div>
+
+<div class="row"> <!-- Label news -->
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 label"> 
+		<%= image_tag 'news.png', :width=> '80%' %>
+		<%= link_to 'veja mais', root_path %>
+	</div>
+</div> <!-- end Label news -->
+
+<div class="row"> <!-- session products news -->
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod1.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod2.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod3.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod3.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+</div> <!-- end session products new -->
+
+<div class="row"> <!-- Label sale -->
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 label sale"> 
+		<%= image_tag 'sale.png', :width=> '80%' %>
+		<%= link_to 'veja mais', root_path %>
+	</div>
+</div> <!-- end Label sale -->
+
+<div class="row"> <!-- session products sale -->
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod1.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod2.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod3.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod3.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+</div> <!-- end session products sale-->
