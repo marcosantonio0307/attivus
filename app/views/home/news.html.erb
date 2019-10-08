@@ -1,22 +1,69 @@
-<div class="row mycarousel">
-	<div class="col-lg-12 col-md-12 box-carousel">
-		<a id="back">back</a>
-		<ul class="carousel-primary">
-			<li class="item-carousel"><%= image_tag 'slide1.jpeg' %></li>
-			<li class="item-carousel"><%= image_tag 'slide2.jpeg' %></li>
-			<li class="item-carousel"><%= image_tag 'slide3.jpeg' %></li>
-		</ul>
-		<a id="forth">next</a>
-	</div>
-</div>
-
 <div class="row"> <!-- Label news -->
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 label"> 
-		<%= image_tag 'news.png', :width=> '80%' %>
-		<%= link_to 'veja mais', news_path %>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="label-pink">
+			<h1>Confira todas as nossas novidades!</h1>
+		</div>	
 	</div>
 </div> <!-- end Label news -->
 
+<div class="row" style="margin-top: 5em;"> <!-- session products news -->
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod1.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod2.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod3.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+		<div class="product">
+			<%= image_tag 'prod3.jpg', :width=> '80%' %>
+		</div>
+		<div class="product">
+			<h3>hidratante facial neltrogena hydro bost</h5>
+		</div>
+		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
+			<h2>R$ 71,99</h2>
+		</div>
+		<div class="product" >
+			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
+		</div>
+	</div>
+</div> <!-- end session products new -->
 <div class="row"> <!-- session products news -->
 	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
 		<div class="product">
@@ -75,124 +122,3 @@
 		</div>
 	</div>
 </div> <!-- end session products new -->
-
-<div class="row"> <!-- Label sale -->
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 label sale"> 
-		<%= image_tag 'sale.png', :width=> '80%' %>
-		<%= link_to 'veja mais', root_path %>
-	</div>
-</div> <!-- end Label sale -->
-
-<div class="row"> <!-- session products sale -->
-	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
-		<div class="product">
-			<%= image_tag 'prod1.jpg', :width=> '80%' %>
-		</div>
-		<div class="product">
-			<h3>hidratante facial neltrogena hydro bost</h5>
-		</div>
-		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
-			<h2>R$ 71,99</h2>
-		</div>
-		<div class="product" >
-			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
-		</div>
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
-		<div class="product">
-			<%= image_tag 'prod2.jpg', :width=> '80%' %>
-		</div>
-		<div class="product">
-			<h3>hidratante facial neltrogena hydro bost</h5>
-		</div>
-		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
-			<h2>R$ 71,99</h2>
-		</div>
-		<div class="product" >
-			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
-		</div>
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
-		<div class="product">
-			<%= image_tag 'prod3.jpg', :width=> '80%' %>
-		</div>
-		<div class="product">
-			<h3>hidratante facial neltrogena hydro bost</h5>
-		</div>
-		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
-			<h2>R$ 71,99</h2>
-		</div>
-		<div class="product" >
-			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
-		</div>
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
-		<div class="product">
-			<%= image_tag 'prod3.jpg', :width=> '80%' %>
-		</div>
-		<div class="product">
-			<h3>hidratante facial neltrogena hydro bost</h5>
-		</div>
-		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
-			<h2>R$ 71,99</h2>
-		</div>
-		<div class="product" >
-			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
-		</div>
-	</div>
-</div> <!-- end session products sale-->
-
-<div class="row">
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 label sale"> 
-		<%= image_tag 'blog.png', :width=> '100%' %>
-	</div>
-</div>
-
-<script type="text/javascript">
-	$(function () {
-		var width = parseInt($('.carousel-primary .item-carousel').outerWidth());
-
-		var ident = 0;
-		var count = ($('.carousel-primary .item-carousel').length) - 1
-
-		$('#forth').click(function(){
-			if (ident < count) {
-				ident++;
-				$('.carousel-primary').animate({'margin-left': '-=' + width + 'px'}, 500);
-			}
-		});
-
-		$('#back').click(function(){
-			if (ident >= 1) {
-				ident--;
-				$('.carousel-primary').animate({'margin-left': '+=' + width + 'px'}, 500);
-			}
-		});
-	});
-
-	$(function (){
-		var width = parseInt($('.carousel-primary .item-carousel').outerWidth());
-		var i = 0;
-		var count = ($('.carousel-primary .item-carousel').length) - 1
-
-		function beginCarousel(){
-			if (i == count) {
-				$('.carousel-primary').animate({'margin-left': '+=' + (width*count) + 'px'}, 500);
-				i = 0
-			};
-		}
-
-		setInterval(function(){ if (i < count) {
-			i++;
-			$('#forth').click()
-		} else if (i == count) { 
-			i = 0;
-			for (back = 0; back < count; back++){
-				$('#back').click();
-			};
-		};
-		}, 3000);
-
-	});
-
-</script>

@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 budget">
+		<div class="form-center">
+			<h1>Solicite seu orçamento aqui!<p>preencha o formulário abaixo e retornaremos o seu contato!</p></h1>
+
+			<div class="form-group">
+				<%= label_tag :nome %>
+				<%= text_field_tag :name, nil, class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= label_tag :telefone %>
+				<%= text_field_tag :phone, nil, class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= label_tag :email %>
+				<%= text_field_tag :email, nil, class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= label_tag 'descrição da receita' %>
+				<%= text_area_tag :description, nil, class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= label_tag 'foto da receita' %>
+				<%= file_field_tag :photo%>
+			</div>
+			<div class="form-group">
+				<%= label_tag 'informações adicionais' %>
+				<%= text_field_tag :more, nil, class: 'form-control' %>
+			</div>
+			<div class="form-group" align="center">
+				<%= button_to 'enviar', nil, class: 'btn-pink' %>
+			</div>
+		</div>
+	</div>
+</div>

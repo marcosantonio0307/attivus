@@ -6,9 +6,61 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
   </head>
 
   <body>
+
+    <div class="row" style="margin-top: 0.5em"> <!-- begin logo bar -->
+      <div class="col-lg-12 col-md-12 logo-bar">
+        <div class="col-lg-3 col-md-3 col-sm-12" style="text-align: center;">
+          <%= link_to (image_tag 'logo.png', :width=> '130px', :height=> '95px'), root_path %>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 search">
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <%= text_field_tag :search, nil, placeholder: 'Busque seu produto aqui!', class: 'form-control' %>
+          </div>
+          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="margin-left: -1.5em;">
+            <span><%= image_tag 'search.png', :width=> '37' %></span>
+          </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <%= link_to 'Entrar', root_path, class: 'btn btn-success' %>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end logo bar -->
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="navbar"> <!-- begin nav bar -->
+          <input type="checkbox" id="bt_menu">
+            <label for="bt_menu">&#9776;</label>
+          <nav class="menus">
+            <ul>
+              <li>
+                <%= link_to 'novidades', news_path %>
+              </li>
+              <li>
+                <%= link_to 'ofertas' %>
+              </li>
+              <li>
+                <%= link_to 'categorías' %>
+              </li>
+              <li>
+                <%= link_to 'manipulações' %>
+              </li>
+              <li>
+                <%= link_to 'orçamentos', budget_path %>
+              </li>
+              <li>
+                <%= link_to 'sobre nós' %>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div> <!-- end nav bar -->
 
     <%= yield %>
   </body>

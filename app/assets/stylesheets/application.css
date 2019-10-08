@@ -117,6 +117,24 @@ label[for="bt_menu"] {
 	margin-top: 30px;
 }
 
+.box-carousel {
+	width: 100%;
+	overflow: hidden;
+}
+
+.carousel-primary {
+	width: 1000%;
+}
+
+.carousel-primary .item-carousel {
+	float: left;
+	width: 1400px;
+}
+
+.forth {
+	right: 0;
+}
+
 .box-product:hover img {
 	width: 100%;
 }
@@ -173,6 +191,57 @@ label[for="bt_menu"] {
 	font-size: 1.7em;
 	border-radius: 0.5em;
 }
+
+.label-pink {
+	width: 70%;
+	margin: 1em auto;
+	border-radius: 2em;
+	color: #fff;
+	background: #FA58D0;
+	padding: 0.5em 0.5em;
+	text-align: center;
+}
+
+.budget {
+	min-height: 40em;
+	background-image: url('budget.png');
+	background-size: 100%;
+	background-repeat: repeat-y;
+}
+
+.form-center {
+	width: 45%;
+	background: #fff;
+	margin: 3em auto;
+	color: ;
+}
+
+.form-center h1 {
+	color: #fff;
+	background: #FE642E;
+	padding: 0.5em 0.5em;
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.form-center h1 p {
+	font-size: 0.5em;
+	margin-top: 1em;
+}
+
+.form-center .form-group{
+	padding: 0.5em 2em;
+}
+
+.btn-pink {
+	width: 50%;
+	background: #FA58D0;
+	padding: 0.5em 1em;
+	color: #fff;
+	font-weight: bold;
+	margin-bottom: 2em;
+}
+
 
 /* ----- display small ------------ */
 
@@ -235,6 +304,10 @@ label[for="bt_menu"] {
 	}
 
 	.label a {
+		font-size: 1.2em;
+	}
+
+	.form-center h1 {
 		font-size: 1.2em;
 	}
 }
