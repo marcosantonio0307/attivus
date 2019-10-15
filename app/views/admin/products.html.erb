@@ -1,0 +1,46 @@
+<%= render 'menu' %>
+
+<div class="col-lg-7 col-md-7 box-admin">
+	<h2 class="label-admin">Meus Produtos</h2>
+	<input type="text" id="search" placeholder="Buscar Produto" style="float: right; margin-bottom: 1em;">
+	<table class="table table-bordered">
+		<thead>
+			<th>Nº</th>
+			<th>Nome</th>
+			<th>Preço</th>
+			<th>Categoria</th>
+			<th>Novidade?</th>
+		</thead>
+		<tbody id="table">
+			<% @products.each do |product| %>
+			<tr>
+				<td><%= product.id %></td>
+				<td><%= product.name %></td>
+				<td><%= number_to_currency product.price %></td>
+				<td><%= product.category %></td>
+				<td>
+					<% if product.news == true %>
+						<%= 'Novidade' %>
+					<% else %>
+						<%= 'Não' %>
+					<% end %>
+				</td>
+				<td><%= link_to :Exibir, admin_product_path(product), class: 'btn btn-primary' %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+	    $("#search").keyup(function(){
+	        var texto = $(this).val();
+	        $("#table tr").css("display", "table-row");
+	        $("#table tr").each(function(){
+	            if($(this).text().toUpperCase().indexOf(texto.toUpperCase()) < 0)
+   				   $(this).css("display", "none");
+	        });
+	    });
+	});
+</script>

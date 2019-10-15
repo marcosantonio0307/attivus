@@ -302,6 +302,64 @@ label[for="bt_menu"] {
 }
 
 
+/* panel Admin Styles */
+
+.menu-admin {
+	background: #02c2b2ff; /* color base */
+	font-size: 1.2em;
+	padding-left: 2em;
+	margin-left: 3em;
+}
+
+.menu-admin h4 {
+	font-weight: bold;
+	color: #1c1c1c;
+}
+
+.menu-admin a {
+	text-decoration: none;
+	color: #fff;
+	margin-left: 1em;
+	font-weight: bold;
+
+}
+
+.menu-admin ul li {
+	list-style: none;
+}
+
+.head-admin {
+	margin-top: -13em;
+	text-align: center;
+	margin-bottom: 3em;
+	background: #02c2b2ff; /* color base */
+	padding: 4em;
+	color: #fff;
+}
+
+.box-admin {
+	background: #F2F2F2;
+	padding: 1em;
+	margin-left: 3em;
+	padding-left: 2em;
+}
+
+.form-admin {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.label-admin {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.options {
+	margin-bottom: 1em;
+}
+
+/* end panel style */
+
 
 /* ----- display small ------------ */
 
