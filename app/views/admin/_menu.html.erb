@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-lg-12 col-md-12 head-admin">
+		<h1>Painel Administrativo <%= link_to :sair, destroy_user_session_path, method: :delete %></h1>
+	</div>
+</div>
+
+<% if flash[:notice] %>
+	<div class="alert alert-info" role="alert">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+<div class="col-lg-3 col-md-3 menu-admin" >
+	<ul>
+		<h4>Menu</h4>
+		<li><%= link_to '- Inicio', admin_index_path %></li>
+		<h4>Produtos</h4>
+		<li><%= link_to '- Novo produto', admin_products_new_path %></li>
+		<li><%= link_to '- Meus produtos', admin_products_path %></li>
+	</ul>
+</div>
