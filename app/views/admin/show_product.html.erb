@@ -26,5 +26,10 @@
 			<%= f.label :novidade? %> <br>
 			<%= f.select :news, (['sim', 'nao']), class: 'form-control', :disabled=>true %>
 		</div>
+		<div class="form-group">
+			<% @product.files.each do |file| %>
+				<%= image_tag file, :width=> '200px' %>
+			<% end %>
+		</div>
 	<% end %>
 </div>

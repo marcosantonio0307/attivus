@@ -14,6 +14,9 @@ class ProductsController < ApplicationController
 
 	def update
 		@product = Product.find(params[:id])
+		if @product.files.last != nil
+			@product.files.last.destroy
+		end
 		values = params.require(:product).permit!
 		@product.update values
 		redirect_to admin_product_path(@product), notice: 'Produto atualizado com sucesso!'
