@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'admin/products/:id' => 'admin#show_product', as: :admin_product
   get 'admin/products/:id/edit' => 'admin#edit_product', as: :admin_edit_product
 
-  resources :products, only:[:create, :update, :index, :show]
+  resources :products, only:[:create, :update, :index, :show] do
+  	resources :files, only:[:new, :create, :edit, :update, :destroy]
+  end
   resources :admin, only:[:index]
 end
