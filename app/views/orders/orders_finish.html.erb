@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-lg-12 col-md-12 head-order">
+		<h2>SEUS PEDIDOS</h2><br><br><br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="container">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<table class="table table-bordered">
+				<thead>
+					<th>Nº Pedido</th>
+					<th>Data Pedido</th>
+					<th>Valor Pedido</th>
+					<th>Status Pedido</th>
+				</thead>
+				<tbody>
+					<% @orders.each do |order| %>
+					<tr>
+						<td><%= order.id %></td>
+						<td><%= datebr(order.created_at) %></td>
+						<td><%= number_to_currency order.total %></td>
+						<td><%= order.status %></td>
+						<td><%= link_to :Exibir, order_path(order), class: 'btn btn-primary' %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

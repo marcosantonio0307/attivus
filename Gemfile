@@ -20,6 +20,7 @@ gem 'rails-i18n'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'devise'
+gem "pagseguro-oficial"
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

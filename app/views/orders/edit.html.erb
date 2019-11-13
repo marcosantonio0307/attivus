@@ -30,7 +30,7 @@
 		<div class="finish-order" style="background: #FE642E;">
 			<p align="center">PAGAMENTO</p><br>
 			<p>FORMA DE PAGAMENTO:</p>
-			<p><%=  %></p>
+			<p><%= link_to 'Pagar com cartão', order_checkout_path(@order), class: 'btn btn-success' %></p>
 		</div>
 	</div>
 </div>
