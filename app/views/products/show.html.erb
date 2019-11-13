@@ -1,13 +1,13 @@
 <div class="row">
 	<div class="container">
 		<div class="col-lg-6 col-md-6 show-product-image">
-		<%= image_tag 'prod1.jpg' %>
+		<%= image_tag @product.files.last %>
 		</div>
 		<div class="col-lg-4 col-md-4">
 			<h1 class="show-product-name"><%= @product.name %></h1>
 			<h1 class="show-product-price"><%= number_to_currency @product.price %></h1>
 			<h3 class="show-product-description"><%= @product.description %></h3>
-			<h3><%= link_to :Comprar, root_path, class: 'btn btn-buy' %></h3>
+			<h3><%= link_to :Comprar, add_order_item_path(@product), class: 'btn btn-buy' %></h3>
 		</div>
 	</div>
 </div>

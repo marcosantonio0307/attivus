@@ -15,17 +15,41 @@
         <div class="col-lg-3 col-md-3 col-sm-12" style="text-align: center;">
           <%= link_to (image_tag 'logo.png', :width=> '130px', :height=> '95px'), root_path %>
         </div>
-
+        <div class="col-lg-3 col-md-3 col-sm-12" style="color: #fff;">
+          <h3><b>FARMÁCIA COM MANIPULAÇÃO</b></h3>
+        </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 search">
-          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             <%= text_field_tag :search_product, nil, placeholder: 'Busque seu produto aqui!', class: 'form-control' %>
           </div>
           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="margin-left: -1.5em;">
             <span><%= image_tag 'search.png', :width=> '37' %></span>
-          </div>
+          </div>  
+          <% if signed_in? %>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="account" style="margin-top: 3px">
+              <%= image_tag 'login.png', :width=>'30px', title: "#{current_client.email}" %>
+              <div class="account-options">
+                <p><%= link_to 'Minha Conta' %></p>
+                <p><%= link_to 'Pedidos' %></p>
+                <p><%= link_to 'Sair', destroy_client_session_path, method: :delete, data:{confirm: 'Encerrar Sessão?'} %></p>
+              </div>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: 0.5em;" >
+              <% if current_client.orders.last != nil && current_client.orders.last.status == 'aberta' %>
+                <%= link_to (image_tag 'buy.png', :width=>'35px', title: 'Carrinho'), order_path(current_client.orders.last) %>
+              <% end %>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="font-size: 1.1em; color: #fff; font-weight: bold; margin-top: 5px;">
+               <% if current_client.orders.last != nil && current_client.orders.last.status == 'aberta' %>
+                <%= number_to_currency current_client.orders.last.total %>
+              <% end %>
+            </div>
+          <% else %>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-            <%= link_to 'Entrar', root_path, class: 'btn btn-success' %>
-          </div>
+              <%= link_to 'Entrar', new_client_session_path, class: 'btn btn-success' %>
+            </div>
+          <% end %>
+          
         </div>
       </div>
     </div> <!-- end logo bar -->
@@ -38,29 +62,87 @@
           <nav class="menus">
             <ul>
               <li>
-                <%= link_to 'novidades', news_path %>
+                <%= link_to 'Novidades', news_path %>
               </li>
               <li>
-                <%= link_to 'ofertas' %>
+                <%= link_to 'Ofertas' %>
               </li>
               <li>
-                <%= link_to 'categorías' %>
+                <%= link_to 'Categorías' %>
               </li>
               <li>
-                <%= link_to 'manipulações' %>
+                <%= link_to 'Manipulações' %>
               </li>
               <li>
-                <%= link_to 'orçamentos', budget_path %>
+                <%= link_to 'Orçamentos', budget_path %>
               </li>
               <li>
-                <%= link_to 'sobre nós' %>
+                <%= link_to 'Sobre Nós' %>
               </li>
             </ul>
           </nav>
         </div>
+        <% if flash[:notice] %>
+          <div class="alert alert-info" style="width: 90%; margin: 0px auto;">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
       </div>
     </div> <!-- end nav bar -->
 
+    <script>
+      var i = 0
+      $('#account').click( function(){
+        if (i == 0) {
+          $('.account-options').css({visibility: "visible" });
+          i = 1
+        } else {
+          $('.account-options').css({visibility: "hidden" });
+          i = 0
+        } 
+      });﻿
+    </script>
+
     <%= yield %>
+
+    <footer class="footer">
+      <div class="row footer-up">
+        <div class="col-lg-12 col-md-12 col-sm-12 payment-title">
+          <h1>FACILIDADE NO PAGAMENTO</h1>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 payment-method">
+          <p><%= image_tag 'deposito.png'%></p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 payment-method">
+          <p><%= image_tag 'visa.png' %></p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 payment-method">
+          <p style="margin-top: -15px"><%= image_tag 'mastercard.png' %></p>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 payment-method">
+          <p><%= image_tag 'elo.png' %></p>
+        </div>
+      </div>
+      <div class="row footer-down">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="footer-menu">
+            <span><%= link_to 'INICIO ' %></span>|
+            <span><%= link_to 'NOVIDADES ' %></span>|
+            <span><%= link_to 'OFERTAS ' %></span>|
+            <span><%= link_to 'CATEGORIAS ' %></span>|
+            <span><%= link_to 'MANIPULAÇÃO ' %></span>|
+            <span><%= link_to 'SOBRE NÓS' %></span>
+          </div>
+        </div>
+        <div>
+          <h3 class="copyright">&copy; Attivus Farma Todos os direitos reservados</h3>
+        </div>
+      </div>
+    </footer>
+    <script>
+      /* setTimeout(function() {
+        window.location.reload(0);
+      }, 3600); */
+    </script>
   </body>
 </html>

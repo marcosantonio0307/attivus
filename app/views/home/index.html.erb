@@ -22,7 +22,7 @@
 		<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
 			<%= link_to product_path(product) do %>
 				<div class="product product-image">
-					<%= image_tag 'prod1.jpg' %>
+					<%= image_tag(product.files.last) %>
 				</div>
 				<div class="product product-name">
 					<h3><%= product.name %></h3>
@@ -32,7 +32,7 @@
 				</div>
 			<% end %>
 			<div class="product-btn" >
-				<%= button_to 'COMPRAR', root_path, class: 'btn btn-buy' %>
+				<%= button_to 'COMPRAR', add_order_item_path(product), method: :get, class: 'btn btn-buy' %>
 			</div>
 		</div>
 	<% end %>

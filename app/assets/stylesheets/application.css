@@ -285,6 +285,34 @@ label[for="bt_menu"] {
 	margin-bottom: 2em;
 }
 
+.btn-orange {
+	width: 300px;
+	background: #FE642E;
+	padding: 0.5em 1em;
+	font-size: 1.3em;
+	color: #fff;
+	font-weight: bold;
+}
+
+.btn-orange:hover {
+	background: #FF4000;
+	color: #fff;
+}
+
+.btn-blue {
+	width: 300px;
+	background: #02c2b2ff;
+	padding: 0.5em 1em;
+	font-size: 1.3em;
+	color: #fff;
+	font-weight: bold;
+}
+
+.btn-blue:hover {
+	background: #04B4AE;
+	color: #fff;
+}
+
 .show-product-image img {
 	width: 80%;
 
@@ -301,6 +329,114 @@ label[for="bt_menu"] {
 	font-size: 3em;
 }
 
+.head-order {
+	text-align: center;
+}
+
+.head-order h2 {
+	font-weight: bold;
+}
+
+.item-order {
+	border: solid 1px #e6e6e6;
+}
+
+.item-order img {
+	margin: 1em;
+	width: 150px;
+}
+
+.resume-order {
+	text-align: right;
+}
+
+.account-options {
+	width: 120px;
+	background: #FE642E;
+	padding: 0.5em;
+	margin-top: 0em;
+	border-radius: 0.5em;
+	margin-top: 0.5em;
+	position: absolute;
+	z-index: 10;
+	visibility: hidden;
+}
+
+.account-options a {
+	color: #fff;
+	text-decoration: none;
+	padding: 0.3em;
+	font-weight: bold;
+	border-radius: 0.5em;
+}
+
+.account-options a:hover {
+	background: #fff;
+	color: #FE642E;
+}
+
+.finish-order {
+	width: 90%;
+	margin: 0.5em auto;
+	font-size: 1.3em;
+	background: #02c2b2ff;
+	font-weight: bold;
+	color: #fff;
+	padding: 1em;
+	border-radius: 0.3em;
+}
+
+.footer {
+	height: 300px;
+	margin-top: 300px;
+}
+
+.payment-title h1 {
+	font-weight: bold;
+	text-align: center;
+	font-size: 3em;
+	margin-bottom: 3em;
+}
+
+.payment-method p {
+	text-align: center;
+}
+
+.payment-method img {
+	width: 30%;
+}
+
+.footer-down {
+	margin-top: 3em;
+	background: #02c2b2ff; /* color base */
+	height: 150px;
+}
+
+.footer-menu {
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 2em;
+}
+
+.footer-menu a {
+	text-decoration: none;
+	color: #fff;
+	padding: 0.5em;
+}
+
+.footer-menu a:hover {
+	color: #02c2b2ff; /* color base */
+	background: #fff;
+	border-radius: 1em;
+}
+
+.copyright {
+	color: #fff;
+	text-align: center;
+	margin-top: 4em;
+}
 
 /* panel Admin Styles */
 

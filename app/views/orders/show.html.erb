@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="col-lg-12 col-md-12 head-order">
+		<h2>CARRINHO DE COMPRAS</h2><br><br><br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="container">
+		<div class="col-lg-8 col-md-8">
+			<h1 style="text-align: center; font-weight: bold; margin-bottom: 2em;">Itens do Pedido</h1>
+			<% @order.item.each do |item| %>
+				<div class="item-order col-lg-12 col-md-12">
+					<div class="col-lg-5 col-md-5">
+						<%= image_tag item.product.files.first %>
+					</div>
+					<div class="col-lg-7 col-md-7">
+						<h3><%= item.product.name %></h3>
+						<p style="color: #FE642E;"><%= number_to_currency item.product.price %> Un.</p>
+						<h4>Qtde. <%= item.amount %></h4>
+						<h4>Valor: <%= number_to_currency item.price %></h4>
+						<p style="float: right; margin: 0.5em;"><%= link_to :Editar, edit_order_item_path(@order, item), class: 'btn btn-warning' %></p>
+						<p style="float: right; margin: 0.5em;"><%= link_to :Remover, order_item_path(@order, item), method: :delete, class: 'btn btn-danger', data:{confirm: 'Deseja remover este item?'} %></p>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-lg-4 col-md-4 resume-order">
+			<h2 style="font-weight: bold;">Resumo do Pedido</h2>
+			<h3>Qtd. Itens: <%= @order.item.count %></h3>
+			<h3>Total Pedido: <%=  %></h3>
+			<h3>Frete: <%= number_to_currency @order.shipping %></h3>
+			<h2>Total a Pagar: <%= number_to_currency @order.total %></h2><br>
+			<p><%= link_to 'Continuar Comprando', root_path, class: 'btn btn-orange' %></p>
+			<p><%= link_to 'Finalizar Pedido', edit_order_path(@order), class: 'btn btn-blue' %></p>
+		</div>
+	</div>
+</div>
