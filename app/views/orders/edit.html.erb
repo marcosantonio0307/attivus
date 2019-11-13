@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-lg-12 col-md-12 head-order">
+		<h2>REVISE SEU PEDIDO</h2><br><br><br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-4 col-md-4">
+		<div class="finish-order" style="background: #74DF00">
+			<p align="center">DETALHES DA COMPRA</p><br>
+			<p>PEDIDO Nº: <%= @order.id %></p>
+			<p>VALOR DO PEDIDO: <%= number_to_currency @total_order %></p>
+			<p>FRETE: <%= number_to_currency @order.shipping %></p>
+			<h3><b>TOTAL A PAGAR: <%= number_to_currency @order.total %></b></h3>
+		</div>
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<div class="finish-order">
+			<p align="center">SEUS DADOS</p><br>
+			<p>NOME: <%= @order.client.name %></p>
+			<p>CPF: <%= @order.client.cpf %></p>
+			<p>TELEFONE: <%= @order.client.phone %></p>
+			<p>ENDEREÇO: <%= @order.client.address %></p>
+			<p>CIDADE: <%= @order.client.city %></p>
+			<p>UF: <%= @order.client.uf %></p>
+			<p>CEP: <%= @order.client.cep %></p>
+		</div>
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<div class="finish-order" style="background: #FE642E;">
+			<p align="center">PAGAMENTO</p><br>
+			<p>FORMA DE PAGAMENTO:</p>
+			<p><%=  %></p>
+		</div>
+	</div>
+</div>

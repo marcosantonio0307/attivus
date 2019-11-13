@@ -8,6 +8,9 @@ class ProductsController < ApplicationController
 		else
 			@product.news = false
 		end	
+		if params[:product][:files] == nil
+			@product.files.attach(io: File.open("app/assets/images/no-image.jpg"), filename: "no-image.jpg", content_type: "no-image/jpg")
+		end
 		@product.save
 		redirect_to admin_index_path
 	end
@@ -15,7 +18,7 @@ class ProductsController < ApplicationController
 	def update
 		@product = Product.find(params[:id])
 		if @product.files.last != nil
-			@product.files.last.destroy
+			@product.files.last.purge
 		end
 		values = params.require(:product).permit!
 		@product.update values

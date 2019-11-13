@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :clients
   devise_for :users
   root 'home#index'
 
@@ -10,8 +11,16 @@ Rails.application.routes.draw do
   get 'admin/products/:id' => 'admin#show_product', as: :admin_product
   get 'admin/products/:id/edit' => 'admin#edit_product', as: :admin_edit_product
 
+  get 'orders/items/add/:id' => 'items#add', as: :add_order_item
+  get 'orders/:id/finish' => 'finish#orders', as: :finish_order
+
   resources :products, only:[:create, :update, :index, :show] do
   	resources :files, only:[:new, :create, :edit, :update, :destroy]
   end
+
+  resources :orders do
+  	resources :items
+  end
+
   resources :admin, only:[:index]
 end
