@@ -1,0 +1,9 @@
+<%= render 'menu' %>
+
+<div class="col-lg-8 col-md-8">
+	<div class="box-confirm">
+		<h2>Deseja Registrar o Envio do Pedido?</h2>
+		<span style="margin-right: 5px"><%= link_to 'Sim', admin_orders_confirm_send_path(@order), class: ' btn btn-success', data:{confirm: 'Registrar o Envio do Pedido?'} %></span>
+		<span style="margin-left: 5px"><%= link_to 'Não', admin_orders_payment_pending_path, class: ' btn btn-danger' %></span>
+	</div>
+</div>

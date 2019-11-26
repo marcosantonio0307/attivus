@@ -29,8 +29,9 @@
 	<div class="col-lg-4 col-md-4">
 		<div class="finish-order" style="background: #FE642E;">
 			<p align="center">PAGAMENTO</p><br>
-			<p>FORMA DE PAGAMENTO:</p>
-			<p><%= link_to 'Pagar com cartão', order_checkout_path(@order), class: 'btn btn-success' %></p>
+			<p>SELECIONE PAGAMENTO:</p>
+			<p><%= link_to 'Pagar com Cartão', order_checkout_path(@order), class: 'btn btn-success' %></p>
+			<p><%= link_to 'Deposito ou Transferencia', finish_order_path(@order), class: 'btn btn-warning' %></p>
 		</div>
 	</div>
 </div>

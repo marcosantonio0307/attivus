@@ -21,7 +21,7 @@
 						<td><%= datebr(order.created_at) %></td>
 						<td><%= number_to_currency order.total %></td>
 						<td><%= order.status %></td>
-						<td><%= link_to :Exibir, order_path(order), class: 'btn btn-primary' %></td>
+						<td><%= link_to :Exibir, myorder_path(order), class: 'btn btn-primary' %></td>
 					</tr>
 					<% end %>
 				</tbody>
