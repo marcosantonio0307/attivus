@@ -2,30 +2,22 @@ class OrdersController < ApplicationController
 	protect_from_forgery
 	before_action :authenticate_client!
 	before_action :set_client
+	before_action :set_order, only:[:finish, :myorder, :edit, :checkout, :create, :show, :receipt]
 
 	def finish
-		@order = Order.find(params[:id])
 		@order.update(status: 'pendente')
+		redirect_to myorder_path(@order), notice: 'Pedido Realizado! Aguardando Pagamento'
 	end
 
 	def edit
-		@order = Order.find(params[:id])
-		@total_order = 0
-		@order.item.each do |item|
-			if item.price != nil
-				@total_order += item.price
-			end
-		end
+		order_total(@order)
 	end
 
 	def checkout
 		@session_id = (PagSeguro::Session.create).id
-		@order = Order.find(params[:id])
 	end
 
 	def create
-		@order = Order.find(params[:order_id])
-
 	    payment = PagSeguro::CreditCardTransactionRequest.new
 	    payment.notification_url = "https://pagseguro-teste.herokuapp.com/notification"
 	    payment.payment_mode = "gateway"
@@ -119,12 +111,34 @@ class OrdersController < ApplicationController
 		@orders = Order.where(client_id: client.id)
 	end
 
+	def receipt
+		@order.file.attach(params[:file])
+		redirect_to myorder_path(@order)
+	end
+
 	def show
-		@order = Order.find(params[:id])
+		order_total(@order)
+	end
+
+	def myorder
+		order_total(@order)
 	end
 
 	private
 		def set_client
 			@client = current_client
+		end
+
+		def set_order
+			@order = Order.find(params[:id])
+		end
+
+		def order_total(order)
+			@total_order = 0
+			order.item.each do |item|
+				if item.price != nil
+					@total_order += item.price
+				end
+			end
 		end
 end

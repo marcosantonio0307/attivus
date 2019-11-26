@@ -15,7 +15,22 @@
 		<h4>Menu</h4>
 		<li><%= link_to '- Inicio', admin_index_path %></li>
 		<h4>Produtos</h4>
-		<li><%= link_to '- Novo produto', admin_products_new_path %></li>
-		<li><%= link_to '- Meus produtos', admin_products_path %></li>
+		<li><%= link_to '- Cadastrar Novo', admin_products_new_path %></li>
+		<li><%= link_to '- Ver Todos', admin_products_path %></li>
+		<h4>Pedidos</h4>
+		<li><%= link_to '- Pagamento Pendente', admin_orders_payment_pending_path %></li>
+		<li><%= link_to '- Envio Pendente', admin_orders_send_pending_path %></li>
+		<li><%= link_to '- Recebimento Pendente', admin_orders_received_pending_path %></li>
+		<li><%= link_to '- Finalizados', admin_orders_finished_path %></li>
 	</ul>
 </div>
+<script>
+	function hideBars(){
+		var top = document.getElementById('top-bar')
+		var menu = document.getElementById('menu-bar')
+		var bottom = document.getElementById('bottom-bar')
+		top.style.display = 'none'
+		menu.style.display = 'none'
+		bottom.style.display = 'none'
+	}
+</script>

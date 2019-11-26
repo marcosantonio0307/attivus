@@ -143,6 +143,7 @@ label[for="bt_menu"] {
 
 .box-product {
 	height: 300px;
+	margin-bottom: 2em;
 }
 
 .box-product img {
@@ -235,12 +236,12 @@ label[for="bt_menu"] {
 	border-radius: 0.5em;
 }
 
-.label-pink {
+.label-orange {
 	width: 70%;
 	margin: 1em auto;
 	border-radius: 2em;
 	color: #fff;
-	background: #FA58D0;
+	background: #FE642E;
 	padding: 0.5em 0.5em;
 	text-align: center;
 }
@@ -261,7 +262,7 @@ label[for="bt_menu"] {
 
 .form-center h1 {
 	color: #fff;
-	background: #02c2b2ff; /* color base */
+	background: #FE642E; /* orange */
 	padding: 0.5em 0.5em;
 	text-align: center;
 	margin-bottom: 1.5em;
@@ -444,7 +445,7 @@ label[for="bt_menu"] {
 	background: #02c2b2ff; /* color base */
 	font-size: 1.2em;
 	padding-left: 2em;
-	margin-left: 3em;
+	min-height: 1000px;
 }
 
 .menu-admin h4 {
@@ -460,12 +461,18 @@ label[for="bt_menu"] {
 
 }
 
+.menu-admin a:hover {
+	color: #02c2b2ff;
+	background: #fff;
+	padding: 0.2em 0.5em;
+	border-radius: 0.5em;
+}
+
 .menu-admin ul li {
 	list-style: none;
 }
 
 .head-admin {
-	margin-top: -13em;
 	text-align: center;
 	margin-bottom: 3em;
 	background: #02c2b2ff; /* color base */
@@ -492,6 +499,15 @@ label[for="bt_menu"] {
 
 .options {
 	margin-bottom: 1em;
+}
+
+.box-confirm {
+	width: 90%;
+	height: 150px;
+	border: solid 1px #e6e6e6;
+	border-radius: 0.5em;
+	margin: 2em auto;
+	text-align: center;
 }
 
 /* end panel style */

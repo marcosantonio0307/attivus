@@ -11,7 +11,7 @@
 
   <body>
   
-    <div class="row" style="margin-top: 0.5em"> <!-- begin logo bar -->
+    <div class="row" style="margin-top: 0.5em" id="top-bar"> <!-- begin logo bar -->
       <div class="col-lg-12 col-md-12 logo-bar">
         <div class="col-lg-3 col-md-3 col-sm-12" style="text-align: center;">
           <%= link_to (image_tag 'logo.png', :width=> '130px', :height=> '95px'), root_path %>
@@ -26,7 +26,7 @@
           <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="margin-left: -1.5em;">
             <span><%= image_tag 'search.png', :width=> '37' %></span>
           </div>  
-          <% if signed_in? %>
+          <% if signed_in? && current_client != nil %>
             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="account" style="margin-top: 3px">
               <%= image_tag 'login.png', :width=>'30px', title: "#{current_client.email}" %>
               <div class="account-options">
@@ -55,7 +55,7 @@
       </div>
     </div> <!-- end logo bar -->
 
-    <div class="row">
+    <div class="row" id="menu-bar">
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="navbar"> <!-- begin nav bar -->
           <input type="checkbox" id="bt_menu">
@@ -66,13 +66,13 @@
                 <%= link_to 'Novidades', news_path %>
               </li>
               <li>
-                <%= link_to 'Ofertas' %>
-              </li>
-              <li>
                 <%= link_to 'Categorías' %>
               </li>
               <li>
                 <%= link_to 'Manipulações' %>
+              </li>
+              <li>
+                <%= link_to 'Profissional' %>
               </li>
               <li>
                 <%= link_to 'Orçamentos', budget_path %>
@@ -106,7 +106,7 @@
 
     <%= yield %>
 
-    <footer class="footer">
+    <footer class="footer" id="bottom-bar">
       <div class="row footer-up">
         <div class="col-lg-12 col-md-12 col-sm-12 payment-title">
           <h1>FACILIDADE NO PAGAMENTO</h1>
@@ -141,6 +141,8 @@
       </div>
     </footer>
     <script>
+
+      hideBars()
       /* setTimeout(function() {
         window.location.reload(0);
       }, 3600); */

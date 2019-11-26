@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="col-lg-12 col-md-12 head-order">
+		<h2>PEDIDO Nº <%= @order.id %></h2><br><br><br>
+	</div>
+</div>
+
+<div class="row">
+	<div class="container">
+		<div class="col-lg-8 col-md-8">
+			<h1 style="text-align: center; font-weight: bold; margin-bottom: 2em;">Itens do Pedido</h1>
+			<% @order.item.each do |item| %>
+				<div class="item-order col-lg-12 col-md-12">
+					<div class="col-lg-5 col-md-5">
+						<%= image_tag item.product.files.first %>
+					</div>
+					<div class="col-lg-7 col-md-7">
+						<h3><%= item.product.name %></h3>
+						<p style="color: #FE642E;"><%= number_to_currency item.product.price %> Un.</p>
+						<h4>Qtde. <%= item.amount %></h4>
+						<h4>Valor: <%= number_to_currency item.price %></h4>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-lg-4 col-md-4 resume-order">
+			<h2 style="font-weight: bold;">Resumo do Pedido</h2>
+			<h3>Qtd. Itens: <%= @order.item.count %></h3>
+			<h3>Total Pedido: <%= number_to_currency @total_order %></h3>
+			<h3>Frete: <%= number_to_currency @order.shipping %></h3>
+			<h3>Total: <%= number_to_currency @order.total %></h3>
+			<h3>Status: <%= @order.status %></h3><br>
+			<h3>Comprovante: 
+				<% if @order.file.attached? %>
+					<%= link_to 'exibir', url_for(@order.file) %>
+				<% end %>
+				</h3><br>
+			<h4 style="margin-left: 30%">
+				<%= form_tag orders_receipt_path(@order), method: :put, multipart: true do %>
+					<p align="right"><%= file_field_tag :file %></p>
+					<p><%= button_to :Enviar, orders_receipt_path(@order) ,class: 'btn btn-success' %></p>
+				<% end %>
+			</h4>
+		</div>
+	</div>
+</div>

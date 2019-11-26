@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  has_one_attached :file
   belongs_to :client
   has_many :item, dependent: :destroy
 

@@ -46,62 +46,24 @@
 </div> <!-- end Label sale -->
 
 <div class="row"> <!-- session products sale -->
-	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
-		<div class="product">
-			<%= image_tag 'prod1.jpg', :width=> '80%' %>
+	<% @sales.each do |product| %>
+		<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
+			<%= link_to product_path(product) do %>
+				<div class="product product-image">
+					<%= image_tag(product.files.last) %>
+				</div>
+				<div class="product product-name">
+					<h3><%= product.name %></h3>
+				</div>
+				<div class="product product-price">
+					<h2><%= number_to_currency product.price %></h2>
+				</div>
+			<% end %>
+			<div class="product-btn" >
+				<%= button_to 'COMPRAR', add_order_item_path(product), method: :get, class: 'btn btn-buy' %>
+			</div>
 		</div>
-		<div class="product">
-			<h3>hidratante facial neltrogena hydro bost</h5>
-		</div>
-		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
-			<h2>R$ 71,99</h2>
-		</div>
-		<div class="product" >
-			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
-		</div>
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
-		<div class="product">
-			<%= image_tag 'prod2.jpg' %>
-		</div>
-		<div class="product">
-			<h3>hidratante facial neltrogena hydro bost</h5>
-		</div>
-		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
-			<h2>R$ 71,99</h2>
-		</div>
-		<div class="product" >
-			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
-		</div>
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
-		<div class="product">
-			<%= image_tag 'prod3.jpg', :width=> '80%' %>
-		</div>
-		<div class="product">
-			<h3>hidratante facial neltrogena hydro bost</h5>
-		</div>
-		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
-			<h2>R$ 71,99</h2>
-		</div>
-		<div class="product" >
-			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
-		</div>
-	</div>
-	<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
-		<div class="product">
-			<%= image_tag 'prod3.jpg', :width=> '80%' %>
-		</div>
-		<div class="product">
-			<h3>hidratante facial neltrogena hydro bost</h5>
-		</div>
-		<div class="product" style="color: white; background: #02c2b2ff; width: 80%">
-			<h2>R$ 71,99</h2>
-		</div>
-		<div class="product" >
-			<%= button_to 'COMPRAR', root_path, class: 'btn btn-default btn_buy' %>
-		</div>
-	</div>
+	<% end %>
 </div> <!-- end session products sale-->
 
 <div class="row">
