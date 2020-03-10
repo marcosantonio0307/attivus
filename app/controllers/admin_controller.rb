@@ -16,6 +16,21 @@ class AdminController < ApplicationController
 
 	def show_product
 		@product = Product.find(params[:id])
+		if @product.news == true
+			@news = 'sim'
+		else
+			@news = 'não'
+		end
+		if @product.active == true
+			@active = 'sim'
+		else
+			@active = 'não'
+		end
+		if @product.offer == true
+			@offer = 'sim'
+		else
+			@offer = 'não'
+		end
 	end
 
 	# Orders session -------------

@@ -23,8 +23,20 @@
 			<%= f.text_field :price, class: 'form-control', :disabled=>true %>
 		</div>
 		<div class="form-group">
+			<%= f.label :ativo? %> <br>
+			<%= text_field_tag :active, @active ,class: 'form-control', :disabled=>true %>
+		</div>
+		<div class="form-group">
 			<%= f.label :novidade? %> <br>
-			<%= f.select :news, (['sim', 'nao']), class: 'form-control', :disabled=>true %>
+			<%= text_field_tag :news, @news ,class: 'form-control', :disabled=>true %>
+		</div>
+		<div class="form-group">
+			<%= f.label :promocao? %> <br>
+			<%= text_field_tag :offer, @offer ,class: 'form-control', :disabled=>true %>
+		</div>
+		<div class="form-group">
+			<%= f.label 'preço promoção' %>
+			<%= f.text_field :price_offer, class: 'form-control', :disabled=>true %>
 		</div>
 		<div class="form-group">
 			<% @product.files.each do |file| %>

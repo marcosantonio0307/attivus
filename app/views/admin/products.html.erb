@@ -9,7 +9,10 @@
 			<th>Nome</th>
 			<th>Preço</th>
 			<th>Categoria</th>
+			<th>Ativo?</th>
 			<th>Novidade?</th>
+			<th>Promoção?</th>
+			<th>Preço Promoção</th>
 		</thead>
 		<tbody id="table">
 			<% @products.each do |product| %>
@@ -19,12 +22,27 @@
 				<td><%= number_to_currency product.price %></td>
 				<td><%= product.category %></td>
 				<td>
+					<% if product.active == true %>
+						<%= 'Sim' %>
+					<% else %>
+						<%= 'Não' %>
+					<% end %>
+				</td>
+				<td>
 					<% if product.news == true %>
 						<%= 'Sim' %>
 					<% else %>
 						<%= 'Não' %>
 					<% end %>
 				</td>
+				<td>
+					<% if product.offer == true %>
+						<%= 'Sim' %>
+					<% else %>
+						<%= 'Não' %>
+					<% end %>
+				</td>
+				<td><%= moneybr(product.price_offer) %></td>
 				<td><%= link_to :Exibir, admin_product_path(product), class: 'btn btn-primary' %></td>
 			</tr>
 			<% end %>

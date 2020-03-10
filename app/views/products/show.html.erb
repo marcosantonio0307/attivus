@@ -4,10 +4,19 @@
 		<%= image_tag @product.files.last %>
 		</div>
 		<div class="col-lg-4 col-md-4">
-			<h1 class="show-product-name"><%= @product.name %></h1>
-			<h1 class="show-product-price"><%= number_to_currency @product.price %></h1>
-			<h3 class="show-product-description"><%= @product.description %></h3>
+			<div style="min-height: 250px;">
+				<h1 class="show-product-name"><%= @product.name %></h1>
+				<% if @product.offer == true %>
+					<h3 class="show-product-price-offer"><%= moneybr(@product.price) %></h3>
+					<h1 class="show-product-price"><%= moneybr(@product.price_offer) %></h1>
+				<% else %>
+					<h1 class="show-product-price"><%= moneybr(@product.price) %></h1>
+				<% end %>
+			</div>	
 			<h3><%= link_to :Comprar, add_order_item_path(@product), class: 'btn btn-buy' %></h3>
+		</div>
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<h3><%= @product.description %></h3>
 		</div>
 	</div>
 </div>
