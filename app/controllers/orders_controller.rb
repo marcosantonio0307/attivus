@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
 	before_action :authenticate_client!
 	before_action :set_client
 	before_action :set_order, only:[:finish, :myorder, :edit, :checkout, :create, :show, :receipt]
+	before_action :validation_client
 
 	def finish
 		@order.update(status: 'pendente')
@@ -139,6 +140,12 @@ class OrdersController < ApplicationController
 				if item.price != nil
 					@total_order += item.price
 				end
+			end
+		end
+
+		def validation_client
+			unless current_client.email == @order.client.email
+				redirect_to root_path
 			end
 		end
 end

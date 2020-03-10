@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+	before_action :authenticate_user!, only:[:create, :update]
 
 	def create
 		values = params.require(:product).permit!
@@ -17,7 +18,7 @@ class ProductsController < ApplicationController
 
 	def update
 		@product = Product.find(params[:id])
-		if @product.files.last != nil
+		if @product.files.last != nil && params[:product][:files] != nil
 			@product.files.last.purge
 		end
 		values = params.require(:product).permit!

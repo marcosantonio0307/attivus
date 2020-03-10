@@ -168,9 +168,10 @@ label[for="bt_menu"] {
 }
 
 .product-name {
-	height: 60px;
+	height: 70px;
 	text-decoration: none;
 	color: black;
+	overflow: hidden;
 }
 
 .product-price {
@@ -178,6 +179,15 @@ label[for="bt_menu"] {
 	background: #02c2b2ff; /* color base */
 	width: 80%;
 	border-radius: 0.5em;
+	text-align: center;	
+}
+
+.product-last-price {
+	float: right;
+	text-decoration: line-through;
+	color: #1c1c1c;
+	font-size: 0.1;
+	padding-right: 30px;
 }
 
 .product-btn {
@@ -316,11 +326,11 @@ label[for="bt_menu"] {
 
 .show-product-image img {
 	width: 80%;
-
 }
 
 .show-product-name {
-	margin-top: 3em;
+	margin-top: 0.7em;
+	font-size: 4em;
 	font-weight: bold;
 }
 
@@ -328,6 +338,10 @@ label[for="bt_menu"] {
 	font-weight: bold;
 	color: #02c2b2ff; /* color base */
 	font-size: 3em;
+}
+
+.show-product-price-offer {
+	text-decoration: line-through;
 }
 
 .head-order {

@@ -15,7 +15,7 @@
 					</div>
 					<div class="col-lg-7 col-md-7">
 						<h3><%= item.product.name %></h3>
-						<p style="color: #FE642E;"><%= number_to_currency item.product.price %> Un.</p>
+						<p style="color: #FE642E;"><%= number_to_currency (item.price/item.amount) %> Un.</p>
 						<h4>Qtde. <%= item.amount %></h4>
 						<h4>Valor: <%= number_to_currency item.price %></h4>
 						<p style="float: right; margin: 0.5em;"><%= link_to :Editar, edit_order_item_path(@order, item), class: 'btn btn-warning' %></p>

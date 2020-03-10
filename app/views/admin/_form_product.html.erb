@@ -8,16 +8,24 @@
 		<%= f.text_area :description, class: 'form-control' %>
 	</div>
 	<div class="form-group">
-		<%= f.label :quantidade %>
-		<%= f.number_field :amount, class: 'form-control' %>
-	</div>
-	<div class="form-group">
 		<%= f.label :preco %>
 		<%= f.text_field :price, class: 'form-control' %>
 	</div>
 	<div class="form-group">
+		<%= f.label :ativo? %> <br>
+		<%= f.check_box :active %>
+	</div>
+	<div class="form-group">
 		<%= f.label :novidade? %> <br>
-		<%= f.select :news, (['sim', 'nao']), class: 'form-control' %>
+		<%= f.check_box :news %>
+	</div>
+	<div class="form-group">
+		<%= f.label :promocao? %> <br>
+		<%= f.check_box :offer %>
+	</div>
+	<div class="form-group">
+		<%= f.label 'preço promoção' %>
+		<%= f.text_field :price_offer, class: 'form-control' %>
 	</div>
 	<div class="form-group">
 		<%= f.label :imagem %> <br>

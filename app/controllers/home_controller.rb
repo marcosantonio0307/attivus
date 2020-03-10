@@ -1,10 +1,10 @@
 class HomeController < ApplicationController
 
 	def index
-		@news = Product.where(news: true)
+		@news = Product.where(news: true, active: true)
 		@news = @news.order :updated_at
 		@news = @news.sample(4)
-		@sales = Product.all
-		@sales = @sales.sample(8)
+		@offers = Product.where(offer: true, active: true)
+		@offers = @offers.sample(8)
 	end
 end

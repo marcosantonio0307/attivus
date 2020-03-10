@@ -27,8 +27,19 @@
 				<div class="product product-name">
 					<h3><%= product.name %></h3>
 				</div>
+				<% if product.offer == true %>
+					<div class="product-last-price">
+						<%= moneybr(product.price) %>
+					</div>
+				<% end %>
 				<div class="product product-price">
-					<h2><%= number_to_currency product.price %></h2>
+					<h2>
+						<% if product.offer == true %>
+							<%= moneybr(product.price_offer) %>
+						<% else %>
+							<%= moneybr(product.price) %>
+						<% end %>
+					</h2>
 				</div>
 			<% end %>
 			<div class="product-btn" >
@@ -46,7 +57,7 @@
 </div> <!-- end Label sale -->
 
 <div class="row"> <!-- session products sale -->
-	<% @sales.each do |product| %>
+	<% @offers.each do |product| %>
 		<div class="col-lg-3 col-md-3 col-sm-12 box-product" >
 			<%= link_to product_path(product) do %>
 				<div class="product product-image">
@@ -55,8 +66,19 @@
 				<div class="product product-name">
 					<h3><%= product.name %></h3>
 				</div>
+				<% if product.offer == true %>
+					<div class="product-last-price">
+						<%= moneybr(product.price) %>
+					</div>
+				<% end %>
 				<div class="product product-price">
-					<h2><%= number_to_currency product.price %></h2>
+					<h2>
+						<% if product.offer == true %>
+							<%= moneybr(product.price_offer) %>
+						<% else %>
+							<%= moneybr(product.price) %>
+						<% end %>
+					</h2>
 				</div>
 			<% end %>
 			<div class="product-btn" >
