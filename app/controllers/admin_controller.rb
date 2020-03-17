@@ -53,7 +53,7 @@ class AdminController < ApplicationController
 	end
 
 	def finished
-		@title = 'Pedidos com Recebimento Pendente'
+		@title = 'Pedidos finalizados'
 		@orders = Order.where(status: 'finalizado')
 		render 'admin/orders/orders'
 	end
