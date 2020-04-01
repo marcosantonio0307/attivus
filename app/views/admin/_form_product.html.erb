@@ -8,6 +8,10 @@
 		<%= f.text_area :description, class: 'form-control' %>
 	</div>
 	<div class="form-group">
+		<%= f.label :categoria %> <br>
+		<%= f.select :category_id, Category.all.collect {|c| [c.name, c.id]}, class: 'form-control' %>
+	</div>
+	<div class="form-group">
 		<%= f.label :preco %>
 		<%= f.text_field :price, class: 'form-control' %>
 	</div>

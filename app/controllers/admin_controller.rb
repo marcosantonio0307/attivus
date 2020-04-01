@@ -16,6 +16,9 @@ class AdminController < ApplicationController
 
 	def show_product
 		@product = Product.find(params[:id])
+		if @product.category != nil
+			@category = @product.category.name
+		end
 		if @product.news == true
 			@news = 'sim'
 		else
