@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
 			@product.files.attach(io: File.open("app/assets/images/no-image.jpg"), filename: "no-image.jpg", content_type: "no-image/jpg")
 		end
 		@product.save
-		redirect_to admin_index_path
+		redirect_to admin_products_path
 	end
 
 	def update

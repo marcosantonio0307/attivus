@@ -36,5 +36,13 @@ Rails.application.routes.draw do
     resources :file
   end
 
+  resources :contacts, only:[:new, :create]
+  get 'contacts/budget' => 'contacts#budget'
+  get 'contacts/professional' => 'contacts#professional'
+
+  namespace :admin do
+    resources :categories, only:[:index, :new, :create, :edit, :update]
+  end
+  
   resources :admin, only:[:index]
 end

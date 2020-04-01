@@ -20,7 +20,10 @@
 				<td><%= product.id %></td>
 				<td><%= product.name %></td>
 				<td><%= number_to_currency product.price %></td>
-				<td><%= product.category %></td>
+				<td>
+					<% if product.category != nil %>
+						<%= product.category.name %></td>
+					<% end %>
 				<td>
 					<% if product.active == true %>
 						<%= 'Sim' %>
