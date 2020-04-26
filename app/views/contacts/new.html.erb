@@ -4,13 +4,14 @@
 			<div class="budget">
 			<div class="form-center">
 				<%= f.hidden_field :contact_type %>
+				<%= f.hidden_field :status %>
 				<h1>
 					<% if @contact.contact_type == 'budget' %>
 						Solicite seu orçamento aqui!
-						<p>preencha o formulário abaixo e retornaremos o seu contato!</p>
+						<p>Preencha o formulário abaixo e retornaremos o seu contato!</p>
 					<% else %>
-						Profissional da Area?
-						<p>preencha o formulário abaixo para receber materiais exclusívos sobre nossos ativus.</p>
+						Profissional da área?
+						<p>Preencha o formulário abaixo para receber materiais exclusívos sobre nossos ativus.</p>
 					<% end %>
 				</h1>
 				<div class="form-group">
@@ -19,11 +20,11 @@
 				</div>
 				<div class="form-group">
 					<%= f.label :telefone %>
-					<%= f.text_field :phone, class: 'form-control' %>
+					<%= f.text_field :phone, class: 'form-control', OnKeyPress: 'format("## #####-####", this)' %>
 				</div>
 				<div class="form-group">
 					<%= f.label :email %>
-					<%= f.text_field :email, class: 'form-control' %>
+					<%= f.email_field :email, class: 'form-control' %>
 				</div>
 				<% if @contact.contact_type == 'professional' %>
 					<div class="form-group">

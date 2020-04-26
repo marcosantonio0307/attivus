@@ -40,8 +40,16 @@ Rails.application.routes.draw do
   get 'contacts/budget' => 'contacts#budget'
   get 'contacts/professional' => 'contacts#professional'
 
+  #routes for admin panel
+
   namespace :admin do
     resources :categories, only:[:index, :new, :create, :edit, :update]
+    resources :contacts, only:[:index, :edit, :show]
+
+    get 'budgets' => 'contacts#budgets', as: :contacts_budgets_received
+    get 'budgets_sends' => 'contacts#budgets_sends', as: :contacts_budgets_sends
+    get 'professional' => 'contacts#professional', as: :contacts_professional_received
+    get 'professional_sends' => 'contacts#professional_sends', as: :contacts_professional_sends
   end
   
   resources :admin, only:[:index]
