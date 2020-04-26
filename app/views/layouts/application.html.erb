@@ -12,103 +12,120 @@
 
   <body>
 
-    <header id="top-bar">
-      <div class="col-lg-12 col-md-12 logo-bar">
-        <div class="col-lg-3 col-md-3 col-sm-12" style="text-align: center;">
-          <%= link_to (image_tag 'logo.png', :width=> '130px', :height=> '95px'), root_path %>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-12" style="color: #fff;">
-          <h3><b>FARMÁCIA COM MANIPULAÇÃO</b></h3>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 search">
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-            <%= text_field_tag :search_product, nil, placeholder: 'Busque seu produto aqui!', class: 'form-control' %>
+    <header id="top-bar" class="header-bar">
+      <div class="col-lg-3 col-md-3 col-sm-12 header-logo">
+        <%= link_to (image_tag 'logo2.png'), root_path %>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 header-text">
+        <h3>
+          Farmácia com <br>
+          Manipulação
+        </h3>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-12 header-menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Procurar Produto" aria-label="Search">
+              <button class="btn btn-outline-blue my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            <ul class="navbar-nav mr-auto" style="margin-left: 50px">
+              <% if client_signed_in? %>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user" title="<%= current_client.email %>"></i>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <%= link_to 'Minha Conta', root_path, class: 'dropdown-item' %>
+                    <%= link_to 'Pedidos', root_path, class: 'dropdown-item' %>
+                    <div class="dropdown-divider"></div>
+                    <%= link_to 'Sair', destroy_client_session_path, method: :delete, data:{confirm: 'Encerrar Sessão?'}, class: 'dropdown-item' %>
+                  </div>
+                </li>
+                <li>
+                  <% if current_client.orders.last != nil && current_client.orders.last.status == 'aberta' %>
+                    <%= link_to order_path(current_client.orders.last), class: 'nav-link' do %>
+                      <i class="fa fa-shopping-cart"></i>
+                      <%= number_to_currency current_client.orders.last.total %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to root_path, class: 'nav-link' do %>
+                      <i class="fa fa-shopping-cart"></i>
+                      Vazio
+                    <% end %>
+                  <% end %>
+                </li>
+              <% else %>
+                <%= link_to 'Entrar', new_client_session_path, class: 'btn btn-light' %>
+              <% end %>
+            </ul>
           </div>
-          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="margin-left: -1.5em;">
-            <span><%= image_tag 'search.png', :width=> '37' %></span>
-          </div>  
-          <% if signed_in? && current_client != nil %>
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="account" style="margin-top: 3px">
-              <%= image_tag 'login.png', :width=>'30px', title: "#{current_client.email}" %>
-              <div class="account-options">
-                <p><%= link_to 'Minha Conta' %></p>
-                <p><%= link_to 'Pedidos' %></p>
-                <p><%= link_to 'Sair', destroy_client_session_path, method: :delete, data:{confirm: 'Encerrar Sessão?'} %></p>
-              </div>
-            </div>
-            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: 0.5em;" >
-              <% if current_client.orders.last != nil && current_client.orders.last.status == 'aberta' %>
-                <%= link_to (image_tag 'buy.png', :width=>'35px', title: 'Carrinho'), order_path(current_client.orders.last) %>
-              <% end %>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="font-size: 1.1em; color: #fff; font-weight: bold; margin-top: 5px;">
-               <% if current_client.orders.last != nil && current_client.orders.last.status == 'aberta' %>
-                <%= number_to_currency current_client.orders.last.total %>
-              <% end %>
-            </div>
-          <% else %>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-              <%= link_to 'Entrar', new_client_session_path, class: 'btn btn-success' %>
-            </div>
-          <% end %>
-          
-        </div>
+        </nav>
       </div>
     </header>
-  
-    <div class="" style="margin-top: 0.5em" id="top-bar"> <!-- begin logo bar -->
-      
-    </div> <!-- end logo bar -->
-
-    <div class="row" id="menu-bar">
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="navbar"> <!-- begin nav bar -->
-          <input type="checkbox" id="bt_menu">
-            <label for="bt_menu">&#9776;</label>
-          <nav class="menus">
-            <ul>
-              <li>
-                <%= link_to 'Ofertas', news_path %>
-              </li>
-              <li>
-                <%= link_to 'Novidades' %>
-              </li>
-              <li>
-                <%= link_to 'Categorias' %>
-              </li>
-              <li>
-                <%= link_to 'Profissional', contacts_professional_path %>
-              </li>
-              <li>
-                <%= link_to 'Orçamentos', contacts_budget_path %>
-              </li>
-              <li>
-                <%= link_to 'Sobre Nós' %>
-              </li>
-            </ul>
-          </nav>
+    
+    <nav id="menu-bar" class="navbar navbar-expand-lg navbar-light nav-blue">
+      <div class="mobile">
+        <a href="#" class="logo-mobile"><%= image_tag 'logo.png', width: '90px' %></a>
+      </div>
+      <div class="mobile" style="margin-left: 3em; margin-top: 1em; width: 200px;">
+        <% if client_signed_in? %>
+          <div class="nav-item dropdown" style="float: left;">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user" title="<%= current_client.email %>"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'Minha Conta', root_path, class: 'dropdown-item' %>
+              <%= link_to 'Pedidos', root_path, class: 'dropdown-item' %>
+              <div class="dropdown-divider"></div>
+              <%= link_to 'Sair', destroy_client_session_path, method: :delete, data:{confirm: 'Encerrar Sessão?'}, class: 'dropdown-item' %>
+            </div>
+          </div>
+          <div>
+            <% if current_client.orders.last != nil && current_client.orders.last.status == 'aberta' %>
+              <%= link_to order_path(current_client.orders.last), class: 'nav-link' do %>
+                <i class="fa fa-shopping-cart"></i>
+                <%= number_to_currency current_client.orders.last.total %>
+              <% end %>
+            <% else %>
+              <%= link_to root_path, class: 'nav-link' do %>
+                <i class="fa fa-shopping-cart"></i>
+                Vazio
+              <% end %>
+            <% end %>
+          </div>
+        <% else %>
+          <%= link_to 'Entrar', new_client_session_path, class: 'btn btn-light' %>
+        <% end %>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav nav-menus">
+          <form class="form-inline my-2 my-lg-0 mobile">
+              <input class="form-control mr-sm-2" type="search" placeholder="Procurar Produto" aria-label="Search">
+              <button class="btn btn-outline-blue my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+          <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <%= link_to 'Ofertas', news_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Novidades', root_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Categorias', root_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Profissional', contacts_professional_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Orçamentos', contacts_budget_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Sobre Nós', root_path, class: 'nav-item nav-link' %>
         </div>
+      </div>
+    </nav>
+
+    <div>
+      <div id="info-bar">
         <% if flash[:notice] %>
-          <div class="alert alert-info" style="width: 90%; margin: 0px auto;">
+          <div class="alert alert-info" style="margin-top: 2ex;">
             <%= flash[:notice] %>
           </div>
         <% end %>
       </div>
-    </div> <!-- end nav bar -->
-
-    <script>
-      var i = 0
-      $('#account').click( function(){
-        if (i == 0) {
-          $('.account-options').css({visibility: "visible" });
-          i = 1
-        } else {
-          $('.account-options').css({visibility: "hidden" });
-          i = 0
-        } 
-      });﻿
-    </script>
-    <div>
       <%= yield %>
     </div>
 
@@ -147,11 +164,10 @@
       </div>
     </footer>
     <script>
-
-      hideBars()
-      setTimeout(function() {
+      hideBars();
+      /* setTimeout(function() {
         window.location.reload(0);
-      }, 3600);
+      }, 2600); */
     </script>
   </body>
 </html>

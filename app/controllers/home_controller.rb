@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-
 	def index
 		@news = Product.where(news: true, active: true)
 		@news = @news.order :updated_at
