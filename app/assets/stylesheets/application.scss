@@ -292,7 +292,7 @@ a .card {
 }
 
 .label img {
-	margin: 0px auto;
+	width: 100%;
 }
 
 .sale a {
@@ -640,7 +640,7 @@ a .card {
 	}
 
 	.label img {
-		width: 90%;
+		width: 100%;
 	}
 
 	.box-product:hover img {
@@ -653,5 +653,9 @@ a .card {
 
 	.form-center h1 {
 		font-size: 1.2em;
+	}
+
+	.card-title {
+		min-height: 85px;
 	}
 }
