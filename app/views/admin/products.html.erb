@@ -46,7 +46,11 @@
 					<% end %>
 				</td>
 				<td><%= moneybr(product.price_offer) %></td>
-				<td><%= link_to :Exibir, admin_product_path(product), class: 'btn btn-primary' %></td>
+				<td class="btn-icon" style="width: 50px;">
+					<%= link_to admin_product_path(product) do %>
+						<i class="fa fa-eye" title="Visualizar"></i>
+					<% end %>		
+				</td>	
 			</tr>
 			<% end %>
 		</tbody>

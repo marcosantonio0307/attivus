@@ -1,4 +1,5 @@
 class Admin::ContactsController < ApplicationController
+	before_action :authenticate_user!
 	def budgets
 		@title = 'Orçamentos Recebidos'
 		@contacts = Contact.where(contact_type: 'budget', status: false)

@@ -4,8 +4,16 @@
 	<div class="col-lg-12 col-md-12 box-admin">
 		<h2 align="center"><%= @product.name %></h2><br>
 		<div class="options">
-			<span><%= link_to :Editar, admin_edit_product_path(@product), class: 'btn btn-warning'  %></span>
-			<span><%= link_to 'Todos os Produtos', admin_products_path, class: 'btn btn-secondary' %></span>
+			<span class="btn-icon">
+				<%= link_to admin_products_path do %>
+					<i class="fa fa-arrow-left" title="Voltar"></i>
+				<% end %>
+			</span>
+			<span class="btn-icon">
+				<%= link_to admin_edit_product_path(@product) do %>
+					<i class="fa fa-edit" title="Editar"></i>
+				<% end %>
+			</span>
 		</div>
 		<%= form_for @product do |f| %>
 			<div class="form-group">

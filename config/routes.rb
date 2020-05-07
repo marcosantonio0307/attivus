@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/budget' => 'home#budget'
   get '/news' => 'home#news'
+  get '/offers' => 'home#offers'
 
   get 'admin/products/new' => 'admin#new_product'
   get 'admin/products' => 'admin#products'

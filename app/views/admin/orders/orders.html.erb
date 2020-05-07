@@ -23,7 +23,11 @@
 				<td><%= order.client.name %></td>
 				<td><%= number_to_currency order.total %></td>
 				<td><%= order.status %></td>
-				<td><%= link_to 'Exibir', admin_orders_show_order_path(order), class: 'btn btn-primary' %></td>
+				<td class="btn-icon" style="width: 50px">
+					<%= link_to admin_orders_show_order_path(order) do %>
+						<i class="fa fa-eye" title="Visualizar"></i>
+					<% end %>
+				</td>
 			</tr>
 			<% end %>
 		</tbody>

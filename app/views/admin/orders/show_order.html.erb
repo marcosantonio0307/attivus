@@ -1,35 +1,52 @@
 <%= render 'menu' %>
 
-<div class="row">
-	<div class="col-lg-8 col-md-8 head-order">
+<div class="container">
+	<div class="col-lg-12 col-md-12 col-sm-12 head-order">
 		<h2>PEDIDO Nº <%= @order.id %></h2>
-		<br><br><br>
+		<br>
 	</div>
 
-	<div class="col-lg-8">
-		<div class="col-lg-8 col-md-8">
-			<h1 style="text-align: center; font-weight: bold; margin-bottom: 2em;">Itens do Pedido</h1>
-			<% @order.item.each do |item| %>
-				<div class="item-order col-lg-12 col-md-12">
-					<div class="col-lg-5 col-md-5">
-						<%= image_tag item.product.files.first %>
-					</div>
-					<div class="col-lg-7 col-md-7">
-						<h3><%= item.product.name %></h3>
-						<p style="color: #FE642E;"><%= number_to_currency item.product.price %> Un.</p>
-						<h4>Qtde. <%= item.amount %></h4>
-						<h4>Valor: <%= number_to_currency item.price %></h4>
-					</div>
-				</div>
-			<% end %>
+	<div class="col-lg-12 col-md-12 col-sm-12 box-informations-order">
+		<h4 style="margin-left: 1ex;"><b>DADOS DO CLIENTE</b></h4><br>
+		<div class="col-lg-7 col-md-7" style="float: left;">
+			<p>NOME: <%= @order.client.name %></p>
+			<p>CPF: <%= @order.client.cpf %></p>
+			<p>TELEFONE: <%= @order.client.phone %></p>
+			<p>ENDEREÇO: <%= @order.client.address %></p>
 		</div>
-		<div class="col-lg-4 col-md-4 resume-order">
-			<h2 style="font-weight: bold;">Resumo do Pedido</h2>
-			<h3>Qtd. Itens: <%= @order.item.count %></h3>
-			<h3>Total Pedido: <%= number_to_currency @total_order %></h3>
-			<h3>Frete: <%= number_to_currency @order.shipping %></h3>
-			<h3>Total: <%= number_to_currency @order.total %></h3>
-			<h3>Status: <%= @order.status %></h3><br>
+		<div style="float: left;" class="col-lg-5 col-md-5">
+			<p>CIDADE: <%= @order.client.city %></p>
+			<p>UF: <%= @order.client.uf %></p>
+			<p>CEP: <%= @order.client.cep %></p>
+		</div>
+	</div>
+
+	<div class="col-lg-12 col-md-12 col-sm-12 box-informations-order">
+		<h4 style="margin-left: 1ex;"><b>ITENS DO PEDIDO</b></h4><br>
+		<% @order.item.each do |item| %>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div>
+					<span style="margin-right: 2ex;"><%= image_tag item.product.files.first, height: '80px'%></span> 
+					<span><%= item.product.name %></span>
+					<div style="float: right; margin-top: 30px;">
+						<span><%= moneybr item.product.price %> x</span>
+						<span><%= item.amount %>un</span> 
+						<span style="margin-left: 1ex"><b>Total:</b> <%= moneybr item.price %></span>
+					</div>	
+				</div>
+			</div>
+		<% end %>
+	</div>
+
+	<div class="col-lg-12 col-md-12 col-sm-12 box-informations-order">
+		<h4><b>RESUMO DO PEDIDO</b></h4><br>
+		<p>QTDE. ITENS: <%= @order.item.count %></p>
+		<p>VALOR ITENS: <%= number_to_currency @total_order %></p>
+		<p>FRETE: <%= number_to_currency @order.shipping %></p>
+		<p>TOTAL: <%= number_to_currency @order.total %></p>
+	</div>
+
+
 			<h3>Comprovante: 
 				<% if @order.file.attached? %>
 					<%= link_to 'exibir', url_for(@order.file) %>
@@ -47,15 +64,5 @@
 			<% end %>
 			</h3>
 		</div>
-	</div>
-	<div class="col-lg-8 col-md-8">
-		<h2 align="center"><b>Dados do cliente</b></h2><br>
-		<h4>NOME: <%= @order.client.name %></h4>
-		<h4>CPF: <%= @order.client.cpf %></h4>
-		<h4>TELEFONE: <%= @order.client.phone %></h4>
-		<h4>ENDEREÇO: <%= @order.client.address %></h4>
-		<h4>CIDADE: <%= @order.client.city %></h4>
-		<h4>UF: <%= @order.client.uf %></h4>
-		<h4>CEP: <%= @order.client.cep %></h4>
 	</div>
 </div>
