@@ -108,8 +108,8 @@
               <button class="btn btn-outline-blue my-2 my-sm-0" type="submit">Buscar</button>
             </form>
           <a class="nav-item nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          <%= link_to 'Ofertas', news_path, class: 'nav-item nav-link' %>
-          <%= link_to 'Novidades', root_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Ofertas', offers_path, class: 'nav-item nav-link' %>
+          <%= link_to 'Novidades', news_path, class: 'nav-item nav-link' %>
           <%= link_to 'Categorias', root_path, class: 'nav-item nav-link' %>
           <%= link_to 'Profissional', contacts_professional_path, class: 'nav-item nav-link' %>
           <%= link_to 'Orçamentos', contacts_budget_path, class: 'nav-item nav-link' %>
@@ -129,8 +129,8 @@
       <%= yield %>
     </div>
 
-    <footer class="footer" id="bottom-bar">
-      <div class="row footer-up">
+    <div id="bottom-bar" class="col-lg-12 col-md-12 col-sm-12 footer">
+      <div class="footer-up ">
         <div class="col-lg-12 col-md-12 col-sm-12 payment-title">
           <h1>FACILIDADE NO PAGAMENTO</h1>
         </div>
@@ -147,22 +147,29 @@
           <p><%= image_tag 'elo.png' %></p>
         </div>
       </div>
-      <div class="row footer-down">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-          <div class="footer-menu">
-            <span><%= link_to 'INICIO ' %></span>|
-            <span><%= link_to 'NOVIDADES ' %></span>|
-            <span><%= link_to 'OFERTAS ' %></span>|
-            <span><%= link_to 'CATEGORIAS ' %></span>|
-            <span><%= link_to 'MANIPULAÇÃO ' %></span>|
-            <span><%= link_to 'SOBRE NÓS' %></span>
-          </div>
-        </div>
-        <div>
-          <h3 class="copyright">&copy; Attivus Farma Todos os direitos reservados</h3>
-        </div>
+    </div>
+    <div id="footer-bar" class="col-lg-12 col-md-12 col-sm-12 footer-down">
+      <div class="footer-menu">
+        <span>
+          <a href="https://api.whatsapp.com/send?phone=5589981479987"><i class="fa fa-whatsapp"></i></a>
+        </span>
+        <span>
+          <a href="https://www.instagram.com/attivusfarmamanipulacao/"><i class="fa fa-instagram"></i></a>
+        </span>
+        <span>
+          <a href="https://www.facebook.com/attivusfarma/"><i class="fa fa-facebook"></i></a>
+        </span>
+        <span>
+          <a href="/contact_me"><i class="fa fa-phone"></i></a>
+        </span>
       </div>
-    </footer>
+      <div style="margin-top: 20px">
+        <p align="center"><%= image_tag ('logo.png'), width: '80px' %></p>
+      </div>
+      <div>
+        <p class="copyright">&copy; todos os direitos reservados | desenvolvido por m.dev web developments</p>
+      </div>
+    </div>
     <script>
       hideBars();
       /* setTimeout(function() {

@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require owl.carousel
+ *= require owl.theme.default
  *= require_tree .
  *= require_self
  */
@@ -110,36 +112,92 @@ body, input, button {
 
 .box-carousel {
 	width: 100%;
-	overflow: hidden;
-}
-
-.carousel-primary {
-	width: 1000%;
-}
-
-.carousel-primary .item-carousel {
-	float: left;
-	width: 1400px;
-}
-
-.forth {
-	right: 0;
+	margin-top: 4ex;
 }
 
 .box-product {
 	height: 300px;
 	margin-bottom: 2em;
+	float: left;
 }
 
-.box-product img {
-	width: 90%;
+.box-product:hover a {
+	text-decoration: none;
+}
+
+.box-product:hover .product-image img {
+	max-height: 100%;
 	transition: .4s;
 }
 
-.box-product:hover img {
+.item:hover a {
+	text-decoration: none;
+}
+
+.item {
+	margin: 0px 3ex;
+}
+
+.card {
+	border: none;
+}
+
+a .card {
+	color: #1c1c1c;
+}
+
+.card:hover img {
+	opacity: 0.8;
+	transition: .2s;
+}
+
+.card-body {
+	min-height: 140px;
+}
+
+.card-title {
+	min-height: 70px;
+}
+
+.card-text {
+	background: #1ab3cdd8;
+	color: #fff;
+	padding: 1ex 0px;
+	border-radius: 0.2em;
+}
+
+.card-text span {
+	font-size: 0.7em;
+	text-decoration: line-through;
+}
+
+.card-btn {
+	margin: 0.1ex 0px;
 	width: 100%;
-	transition: .4s;
 }
+
+
+/* Session Carousel Products */
+
+@media(min-width: 768px) {
+	.carousel-products .carousel-inner .active,
+	.carousel-products .carousel-inner .active + .carousel-item,
+	.carousel-products .carousel-inner .active + .carousel-item + .carousel-item,
+	.carousel-products .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
+		display: block;
+		text-align: center;
+	}
+}
+
+.carousel-products .carousel-inner .carousel-inner.active:not(.carousel-item-right):not(.carousel-item-left),
+.carousel-products .carousel-inner .carousel-inner.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+.carousel-products .carousel-inner .carousel-inner.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item,
+.carousel-products .carousel-inner .carousel-inner.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+	transition: none;
+}
+
+
+/* End Session Carousel Products */
 
 .product {
 	margin: 0px auto;
@@ -149,11 +207,18 @@ body, input, button {
 }
 
 .product-image {
-	height: 120px;
+	height: 160px;
+}
+
+.product-image img {
+	max-height: 95%;
+	margin: auto;
+	transition: .4s;
 }
 
 .product-name {
-	height: 70px;
+	height: 40px;
+	width: 90%;
 	text-decoration: none;
 	color: black;
 	overflow: hidden;
@@ -162,17 +227,21 @@ body, input, button {
 .product-price {
 	color: white;
 	background: #1ab3cdd8; /* color base */
+	height: 45px;
 	width: 80%;
 	border-radius: 0.5em;
-	text-align: center;	
+	text-align: center;
 }
 
 .product-last-price {
 	float: right;
+	position: absolute;
+	width: 90%;
+	text-align: right;
 	text-decoration: line-through;
 	color: #1c1c1c;
-	font-size: 0.1;
-	padding-right: 30px;
+	font-size: 100%;
+	padding-left: 10%;
 }
 
 .product-btn {
@@ -182,7 +251,7 @@ body, input, button {
 
 .btn-buy {
 	width: 100%;
-	background-color: #FE642E;
+	background-color: #ff5722;
 	font-size: 1.2em;
 	color: #f2f2f2;
 	margin-bottom: 2em;
@@ -209,28 +278,21 @@ body, input, button {
 	background: #FF4000;
 }
 
+.label-text {
+	margin: 6em auto;
+	color: #1ab3cdd8;
+	font-style: italic;
+	border-bottom: solid 1px;
+}
+
 .label {
-	margin-top: 8%;
+	margin-top: 10em;
 	margin-bottom: 2.5em;
 	clear: both;
 }
 
 .label img {
 	margin: 0px auto;
-}
-
-.label a {
-	float: right;
-	margin-right: 15%;
-	margin-top: -6%;
-	display: block;
-	position: relative;
-	text-decoration: none;
-	background: #00FF80;
-	color: #f2f2f2;
-	padding: 1% 5%;
-	font-size: 1.7em;
-	border-radius: 0.5em;
 }
 
 .sale a {
@@ -345,6 +407,13 @@ body, input, button {
 	text-decoration: line-through;
 }
 
+.box-informations-order {
+	float: left;
+	padding-bottom: 3ex;
+	padding-top: 3ex;
+	border-bottom: solid 1px #d8d8d8;
+}
+
 .head-order {
 	text-align: center;
 }
@@ -414,6 +483,10 @@ body, input, button {
 	margin-bottom: 3em;
 }
 
+.payment-method {
+	float: left;
+}
+
 .payment-method p {
 	text-align: center;
 }
@@ -424,34 +497,34 @@ body, input, button {
 
 .footer-down {
 	margin-top: 3em;
+	padding-top: 2ex;
 	background: #1ab3cdd8; /* color base */
-	height: 150px;
+	min-height: 200px;
 }
 
 .footer-menu {
-	color: #fff;
-	font-size: 1.2em;
-	font-weight: bold;
+	font-size: 1.5em;
 	text-align: center;
-	margin-top: 2em;
+}
+
+.footer-menu span {
+	padding: 0.2em 1.7em;
 }
 
 .footer-menu a {
 	text-decoration: none;
 	color: #fff;
-	padding: 0.5em;
+	padding-bottom: 5px;
 }
 
 .footer-menu a:hover {
-	color: #1ab3cdd8; /* color base */
-	background: #fff;
-	border-radius: 1em;
+	border-bottom: solid #fff 2px;
 }
 
 .copyright {
 	color: #fff;
 	text-align: center;
-	margin-top: 4em;
+	margin-top: 0.5em;
 }
 
 /* panel Admin Styles */

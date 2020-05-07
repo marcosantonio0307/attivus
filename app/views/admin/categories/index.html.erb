@@ -13,7 +13,11 @@
 			<tr>
 				<td style="width: 200px"><%= category.id %></td>
 				<td><%= category.name %></td>
-				<td style="width: 200px"><%= link_to :Editar, edit_admin_category_path(category), class: 'btn btn-primary' %></td>
+				<td class="btn-icon" style="width: 50px">
+					<%= link_to edit_admin_category_path(category) do %>
+						<i class="fa fa-edit" title="Editar"></i>
+					<% end %>
+				</td>
 			</tr>
 			<% end %>
 		</tbody>
