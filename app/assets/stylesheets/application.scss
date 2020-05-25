@@ -387,24 +387,40 @@ a .card {
 	color: #fff;
 }
 
+.show-product-image {
+	float: left;
+}
+
 .show-product-image img {
-	width: 80%;
+	width: 40%;
+	margin-left: 35%;
+	margin-top: 2em;
+}
+
+.show-product-text {
+	float: left;
+	padding: 5px 2em;
 }
 
 .show-product-name {
 	margin-top: 0.7em;
-	font-size: 4em;
+	font-size: 3em;
 	font-weight: bold;
 }
 
 .show-product-price {
 	font-weight: bold;
 	color: #02c2b2ff; /* color base */
-	font-size: 3em;
+	font-size: 2em;
 }
 
 .show-product-price-offer {
 	text-decoration: line-through;
+}
+
+.show-product-description {
+	min-height: 300px;
+	clear: both;
 }
 
 .box-informations-order {
@@ -432,7 +448,9 @@ a .card {
 }
 
 .resume-order {
-	text-align: right;
+	float: left;
+	padding-left: 4ex;
+	padding-top: 3ex;
 }
 
 .account-options {
@@ -472,8 +490,13 @@ a .card {
 }
 
 .footer {
+	float: left;
 	height: 300px;
 	margin-top: 300px;
+}
+
+.payment-title {
+	float: left;
 }
 
 .payment-title h1 {
@@ -496,6 +519,7 @@ a .card {
 }
 
 .footer-down {
+	float: left;
 	margin-top: 3em;
 	padding-top: 2ex;
 	background: #1ab3cdd8; /* color base */
