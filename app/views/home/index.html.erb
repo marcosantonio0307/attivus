@@ -51,7 +51,7 @@
 									<%= moneybr product.price %>
 								<% end %>
 							</h5>
-							<%= button_to 'COMPRAR', add_order_item_path(product), method: :get, class: 'btn btn-buy card-btn' %>
+							<%= button_to 'COMPRAR', product_path(product), method: :get, class: 'btn btn-buy card-btn' %>
 						</div>
 					</div>
 				<% end %>
@@ -59,7 +59,7 @@
 		<% end %>
 	</div>
 	<div class="text-center">
-		<h4><%= link_to 'VEJA MAIS OFERSTAS', offers_path, class: '' %></h4>	
+		<h5><%= link_to 'VEJA MAIS OFERSTAS', offers_path, class: '' %></h5>	
 	</div>
 </div>
 
@@ -87,7 +87,7 @@
 									<%= moneybr product.price %>
 								<% end %>
 							</h5>
-							<%= button_to 'COMPRAR', add_order_item_path(product), method: :get, class: 'btn btn-buy card-btn' %>
+							<%= button_to 'COMPRAR', product_path(product), method: :get, class: 'btn btn-buy card-btn' %>
 						</div>
 					</div>
 				<% end %>
@@ -95,7 +95,7 @@
 		<% end %>
 	</div>
 	<div class="text-center">
-		<h4><%= link_to 'VEJA MAIS NOVIDADES', news_path, class: '' %></h4>	
+		<h5><%= link_to 'VEJA MAIS NOVIDADES', news_path, class: '' %></h5>	
 	</div>
 </div>
 

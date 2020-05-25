@@ -1,17 +1,23 @@
-<div class="row">
+<div class="container" style="margin-top: 2em;">
 	<div class="col-lg-12 col-md-12 head-order">
-		<h2>ADICIONAR AO PEDIDO</h2>
+		<h2>EDITAR PRODUTO NO CARRINHO</h2><br><br>
 	</div>
 	<div class="container">
 		<div class="col-lg-6 col-md-6 show-product-image">
 		<%= image_tag @item.product.files.last %>
 		</div>
-		<div class="col-lg-4 col-md-4">
-			<h2 class="show-product-name"><%= @item.product.name %></h2>
-			<h2 class="show-product-price"><%= number_to_currency @item.price %></h2>
+		<div class="col-lg-4 col-md-4 show-product-text">
+			<h3><b><%= @item.product.name %></b></h3>
+			<h4 class="show-product-price">
+				<% if @item.product.offer = true %>
+					<%= number_to_currency @item.product.price_offer %>
+				<% else %>
+					<%= number_to_currency @item.product.price %>
+				<% end %>
+			</h4>
 			<%= form_for [@order, @item] do |f| %>
 				<div>
-					<h2>Qtde.</h2>
+					<h5>Qtde.</h5>
 					<%= f.number_field :amount %>
 				</div>
 				<div style="margin-top: 1em;">
